@@ -1,12 +1,20 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://oyvsfhojsmxsetqtdhli.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTI0MjkxMiwiZXhwIjoxOTU2ODE4OTEyfQ._CbEmorU3mUqLWCBYLKqFX5z_mlXgc9dhhLfrkvqpcs';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+
+
+
+
+
+
+
+
+//TEMPLATE USER FUNCTIONS
 export async function getUser() {
     return client.auth.session();
 }
-
 
 export async function checkAuth() {
     const user = await getUser();
@@ -23,13 +31,13 @@ export async function redirectIfLoggedIn() {
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
     
-    return response.user;
+    return response;
 }
 
 export async function signInUser(email, password){
     const response = await client.auth.signIn({ email, password });
 
-    return response.user;
+    return response;
 }
 
 export async function logout() {
