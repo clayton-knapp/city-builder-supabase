@@ -69,6 +69,17 @@ export async function updateWater(newWater) {
     return checkError(response);
 }
 
+// UPDATE SLOGANS
+export async function updateSlogans(newSlogansArr) {
+    const response = await client
+        .from('cities')
+        .update({ slogans: newSlogansArr })
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
+
 
 
 

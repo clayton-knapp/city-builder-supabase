@@ -6,7 +6,8 @@ import {
     updateName,
     updateVillage,
     updateCastle,
-    updateWater
+    updateWater,
+    updateSlogans
 } from '../fetch-utils.js';
 
 
@@ -21,13 +22,10 @@ const villageImageContainer = document.querySelector('#village-container');
 const castleImageContainer = document.querySelector('#castle-container');
 const waterImageContainer = document.querySelector('#water-container');
 
-const sloganInput = document.querySelector('#slogan-input');
-// const sloganButton = document.querySelector('#slogan-button');
 const sloganDisplay = document.querySelector('#slogan-display');
 const sloganForm = document.querySelector('#slogan-form');
 
-const cityNameInput = document.querySelector('#city-name-input');
-const cityNameButton = document.querySelector('#city-name-button');
+const cityNameForm = document.querySelector('#name-form');
 const cityNameDisplay = document.querySelector('#city-name-display');
 
 checkAuth();
@@ -44,13 +42,8 @@ window.addEventListener('load', async()=> {
 
     //     - If no city - create a default city for the user
     if (!city) {
-        const defaultCity = {
-            name: 'Portland',
-            village: 'rich',
-            castle: 'asian',
-            water: 'bathhouse',
-            slogans: []
-        };
+        //passing it an empty object will user supabase defined defaults
+        const defaultCity = {};
         city = await createCity(defaultCity);
     }
 
@@ -60,15 +53,20 @@ window.addEventListener('load', async()=> {
 
 });
 
-cityNameButton.addEventListener('click', async()=>{
+cityNameForm.addEventListener('submit', async(e)=>{
+    e.preventDefault();
+
     // -- Grabs the user input name from the value
-    const newName = cityNameInput.value;
+    const data = new FormData(cityNameForm);
+    const newName = data.get('name-input');
 
     // -- Updates the name for the user in supabase
     const updatedCity = await updateName(newName);
 
     // -- Updates the Dom with fetched name from supabase
     displayCity(updatedCity);
+
+    cityNameForm.reset();
 
 });
 
@@ -100,8 +98,29 @@ waterDropdown.addEventListener('change', async()=>{
 });
 
 
-sloganForm.addEventListener('submit', (e)=> {
+sloganForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
+    // Get the new user Slogan
+    const data = new FormData(sloganForm);
+    const newSlogan = data.get('slogan-input');
+    // console.log(newSlogan);
+
+    // - Fetch stored City which has Slogans Array
+    const city = await fetchCity();
+    // console.log(city.slogans);
+
+    // - Push new slogan to the Slogans Array
+    city.slogans.push(newSlogan);
+
+    // - Update city in supabase with mutated array
+    const newCity = await updateSlogans(city.slogans);
+
+    // - Display returned slogans in the DOM with for loop
+    displayCity(newCity);
+
+    sloganForm.reset();
+
+
 });
 
 

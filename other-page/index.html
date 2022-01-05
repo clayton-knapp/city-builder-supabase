@@ -17,11 +17,13 @@
     <button id="logout">Logout</button>
     <main>
         <h1>City Builder w/ Supabase!</h1>
-        <label for="">
-            Name Your City:
-            <input type="string" id="city-name-input">
-            <button id="city-name-button" name="city name">Submit City Name</button>
-        </label>
+        <form action="" id="name-form">
+            <label for="">
+                Name Your City:
+                <input type="text" name="name-input">
+                <input type="submit" value="Submit City Name"</input>
+            </label>
+        </form>
         <h2 id="city-name-display"></h2>
         <div class="parent-container">
             <div class="child-container"> 
@@ -63,8 +65,8 @@
         </div>
         <form action="" id="slogan-form">
             <label for="slogan-input">Enter Your Slogan:</label>
-            <input type="text" id="slogan-input">
-            <input type="submit" id="slogan-button" value="Submit Slogan">
+            <input type="text" name="slogan-input">
+            <input type="submit" value="Submit Slogan">
             <!-- <button class=button id=slogan-button>Submit Slogan</button> -->
         </form>
         <!-- <div id=count-display>
