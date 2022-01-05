@@ -58,6 +58,11 @@ Additional considerations:
     - Update city in supabase with mutated array
     - Display returned slogans in the DOM with for loop
 
+-- Delete Button
+    -Deletes the signed in users city - calls fetch function that uses delete method
+    - Create a default city for the user
+    - Display the default city
+
 ## FUNCTIONS
 - displayCity(city)
     - takes in the name/village/castle/water/slogans and displays in Dom

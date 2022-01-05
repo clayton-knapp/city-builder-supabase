@@ -80,22 +80,34 @@ export async function updateSlogans(newSlogansArr) {
     return checkError(response);
 }
 
+// DELETE CITY
+export async function deleteCity() {
+    const response = await client
+        .from('cities')
+        .delete()
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    console.log(response);
+    return checkError(response);
+}
+
 
 
 
 //TEMPLATE USER FUNCTIONS
-export async function getUser() {
+export async function getSession() {
     return client.auth.session();
 }
 
 export async function checkAuth() {
-    const user = await getUser();
+    const user = await getSession();
 
     if (!user) location.replace('../'); 
 }
 
 export async function redirectIfLoggedIn() {
-    if (await getUser()) {
+    if (await getSession()) {
         location.replace('./other-page');
     }
 }

@@ -7,7 +7,8 @@ import {
     updateVillage,
     updateCastle,
     updateWater,
-    updateSlogans
+    updateSlogans,
+    deleteCity
 } from '../fetch-utils.js';
 
 
@@ -28,6 +29,11 @@ const sloganForm = document.querySelector('#slogan-form');
 const cityNameForm = document.querySelector('#name-form');
 const cityNameDisplay = document.querySelector('#city-name-display');
 
+const deleteButton = document.querySelector('#delete-button');
+
+const youtubeForm = document.querySelector('#youtube-form');
+
+
 checkAuth();
 
 // EVENT LISTENERS
@@ -43,7 +49,7 @@ window.addEventListener('load', async()=> {
     //     - If no city - create a default city for the user
     if (!city) {
         //passing it an empty object will user supabase defined defaults
-        const defaultCity = {};
+        const defaultCity = {}; //an empty object
         city = await createCity(defaultCity);
     }
 
@@ -119,7 +125,36 @@ sloganForm.addEventListener('submit', async(e)=> {
     displayCity(newCity);
 
     sloganForm.reset();
+});
 
+//DELETE BUTTON
+deleteButton.addEventListener('click', async()=> {
+    // -Deletes the signed in users city - calls fetch function that uses delete method
+    const city = await deleteCity();
+    // console.log(city);
+
+    // - Create a default city for the user
+    const newCity = await createCity({});
+
+    // - Display the default city
+    displayCity(newCity);
+
+
+});
+
+youtubeForm.addEventListener('submit', async(e)=>{
+    e.preventDefault();
+
+    // -- Grabs the user input name from the value
+    const data = new FormData(youtubeForm);
+    const youtubeLink = data.get('youtube-input');
+
+    // -- Updates the youtube link in supabase
+
+
+    // -- Updates the Dom
+
+    youtubeForm.reset();
 
 });
 
