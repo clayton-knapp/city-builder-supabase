@@ -88,7 +88,6 @@ export async function deleteCity() {
         .match({ user_id: client.auth.user().id })
         .single();
 
-    console.log(response);
     return checkError(response);
 }
 

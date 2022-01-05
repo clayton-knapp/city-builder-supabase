@@ -31,7 +31,7 @@ const cityNameDisplay = document.querySelector('#city-name-display');
 
 const deleteButton = document.querySelector('#delete-button');
 
-const youtubeForm = document.querySelector('#youtube-form');
+// const youtubeForm = document.querySelector('#youtube-form');
 
 
 checkAuth();
@@ -130,7 +130,7 @@ sloganForm.addEventListener('submit', async(e)=> {
 //DELETE BUTTON
 deleteButton.addEventListener('click', async()=> {
     // -Deletes the signed in users city - calls fetch function that uses delete method
-    const city = await deleteCity();
+    await deleteCity();
     // console.log(city);
 
     // - Create a default city for the user
@@ -142,21 +142,21 @@ deleteButton.addEventListener('click', async()=> {
 
 });
 
-youtubeForm.addEventListener('submit', async(e)=>{
-    e.preventDefault();
+// youtubeForm.addEventListener('submit', async(e)=>{
+//     e.preventDefault();
 
-    // -- Grabs the user input name from the value
-    const data = new FormData(youtubeForm);
-    const youtubeLink = data.get('youtube-input');
+//     // -- Grabs the user input name from the value
+//     const data = new FormData(youtubeForm);
+//     const youtubeLink = data.get('youtube-input');
 
-    // -- Updates the youtube link in supabase
+//     // -- Updates the youtube link in supabase
 
 
-    // -- Updates the Dom
+//     // -- Updates the Dom
 
-    youtubeForm.reset();
+//     youtubeForm.reset();
 
-});
+// });
 
 
 
