@@ -3,10 +3,71 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+// FETCH CITY
+export async function fetchCity() {
+    const response = await client
+        .from('cities')
+        .select()
+        .match({ user_id: client.auth.user().id })
+        .single();
 
+    return checkError(response);
+}
 
+// CREATE CITY FOR DEFAULT CITY
+export async function createCity(city) {
+    const response = await client
+        .from('cities')
+        .insert([city])
+        // .match({ user_id: client.auth.user().id })
+        .single();
 
+    return checkError(response);
+}
 
+// UPDATE NAME
+export async function updateName(newName) {
+    const response = await client
+        .from('cities')
+        .update({ name: newName })
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
+
+// UPDATE VILLAGE
+export async function updateVillage(newVillage) {
+    const response = await client
+        .from('cities')
+        .update({ village: newVillage })
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
+
+// UPDATE CASTLE
+export async function updateCastle(newCastle) {
+    const response = await client
+        .from('cities')
+        .update({ castle: newCastle })
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
+
+// UPDATE WATER
+export async function updateWater(newWater) {
+    const response = await client
+        .from('cities')
+        .update({ water: newWater })
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
 
 
 
