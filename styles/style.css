@@ -129,3 +129,59 @@ footer {
 .auth-container button {
     margin: 10px;
 }
+
+.image-container{
+    height:300px;
+    width:400px;
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+}
+
+.child-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+label {
+    margin: 20px;
+}
+#slogan-input {
+    width: 4
+    00px;
+}
+
+.image-container {
+    background-size: cover;
+}
+
+#slogan-display {
+    font-family: cursive;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogans {
+    padding: 0px;
+    margin: 5px;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }

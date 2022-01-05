@@ -13,15 +13,82 @@
     <title>Document</title>
 </head>
 
-<body>
-    <header>
-        <div class="gutter-right logo">
-            <img src="../assets/big-logo.png" />
-        </div>
-    </header>    
+<body>   
     <button id="logout">Logout</button>
     <main>
-        <h1>You are logged in!</h1>
+        <h1>City Builder w/ Supabase!</h1>
+        <button id="delete-button">Delete City and Start Over</button>
+        <br>
+        <form action="" id="name-form">
+            <label for="">
+                Name Your City:
+                <input type="text" name="name-input">
+                <input type="submit" value="Submit City Name"</input>
+            </label>
+        </form>
+        <!-- <form action="" id="youtube-form">
+            <label for="">
+                Enter Youtube Link:
+                <input type="text" name="youtube-input">
+                <input type="submit" value="Submit Youtube Link"</input>
+            </label>
+        </form> -->
+        <h2 id="city-name-display"></h2>
+        <div class="parent-container">
+            <div class="child-container"> 
+                <label for="">
+                    Select your village:
+                    <select name="village" id="village-dropdown">
+                        <option value="poor">Poor Village</option>
+                        <option value="rich">Rich Village</option>
+                        <option value="tropical">Tropical Village</option>
+                    </select>
+                </label>
+                <div class="image-container" id="village-container">
+                </div>
+            </div>
+            <div class="child-container"> 
+                <label for="">
+                    Select your castle:
+                    <select name="castle" id="castle-dropdown">
+                        <option value="asian">Asian Castle</option>
+                        <option value="english">English Castle</option>
+                        <option value="german">German Castle</option>
+                    </select>
+                </label>
+                <div class="image-container" id="castle-container">
+                </div>
+            </div>
+            <div class="child-container"> 
+                <label for="">
+                    Select your water feature:
+                    <select name="water" id="water-dropdown">
+                        <option value="pool">Pool</option>
+                        <option value="bathhouse">Bathhouse</option>
+                        <option value="riverspot">Riverspot</option>
+                    </select>
+                </label>
+                <div class="image-container" id="water-container">
+                </div>
+            </div>
+        </div>
+        <form action="" id="slogan-form">
+            <label for="slogan-input">Enter Your Slogan:</label>
+            <input type="text" name="slogan-input">
+            <input type="submit" value="Submit Slogan">
+        </form>
+        <div id=slogan-display>
+        </div>
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="https://www.youtube.com/watch?v=Lg5aU0J-Yxs&t=42s" type="video/mp4">
+        </video> -->
+
+        <!-- <video width="320" height="240" controls>
+            <source src="https://youtu.be/Lg5aU0J-Yxss" type="video/mp4">
+            Your browser does not support the video tag.
+        </video> -->
+
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Lg5aU0J-Yxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>

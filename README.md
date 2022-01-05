@@ -23,3 +23,49 @@ Additional considerations:
   - What needs to live in a persistence layer?
 - Is there some state we need to initialize?
 - Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+
+
+
+## PLAN
+
+### EVENT Listeners
+
+- On Load
+    - Checks to see if user has a city - fetchCity
+    - If no city - create a default city for the user
+    - Display city - name, images, slogans
+
+-Submit Name Button
+    -- Grabs the user input name from the value
+    -- Updates the name for the user in supabase
+    -- Updates the Dom with fetched name from supabase
+
+-Village Dropdown
+    - On change of dropdown update supabase with selection
+    - Display update in DOM
+
+-Castle Dropdown
+    - On change of dropdown update supabase with selection
+    - Display update in DOM
+
+-Pool Dropdown
+    - On change of dropdown update supabase with selection
+    - Display update in DOM
+
+-Submit Slogan Button
+    - Fetch stored Citys Slogans Array
+    - Push new slogan to the Slogans Array
+    - Update city in supabase with mutated array
+    - Display returned slogans in the DOM with for loop
+
+-- Delete Button
+    -Deletes the signed in users city - calls fetch function that uses delete method
+    - Create a default city for the user
+    - Display the default city
+
+## FUNCTIONS
+- displayCity(city)
+    - takes in the name/village/castle/water/slogans and displays in Dom
+    - set textContent for city display
+    - set background image style url or img src of 3 images
+    - displays slogans using for loop
